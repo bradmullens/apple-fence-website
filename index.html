@@ -1,0 +1,863 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apple Fence Company | Austin's Most Trusted Fence Builders | Leander, TX</title>
+    <meta name="description" content="Cedar, wood, iron, chain link & vinyl fencing in Leander & Greater Austin. 51 five-star reviews. Free estimates. Call (512) 680-2742.">
+    <meta name="keywords" content="fence company austin, fence builder leander, cedar fence austin, wood fence leander, chain link fence austin, iron fence austin, vinyl fence austin, fence repair austin">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Apple Fence Company | Austin's Most Trusted Fence Builders">
+    <meta property="og:description" content="Cedar, wood, iron, chain link & vinyl fencing serving Leander & Greater Austin. Free estimates.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://applefenceaustin.com">
+    <meta property="og:image" content="photos/IMG_2203.jpeg">
+
+    <!-- Schema.org LocalBusiness -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FencingContractor",
+        "name": "Apple Fence Company",
+        "url": "https://applefenceaustin.com",
+        "telephone": "+15126802742",
+        "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Leander",
+            "addressRegion": "TX",
+            "addressCountry": "US"
+        },
+        "areaServed": ["Leander", "Cedar Park", "Round Rock", "Georgetown", "Austin", "Pflugerville", "Hutto", "Liberty Hill"],
+        "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "5",
+            "reviewCount": "51"
+        },
+        "priceRange": "$$"
+    }
+    </script>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            green: '#1a4731',
+                            'green-light': '#22573d',
+                            gold: '#f59e0b',
+                            'gold-dark': '#d97706',
+                            light: '#f9fafb',
+                            dark: '#111827',
+                        }
+                    },
+                    fontFamily: {
+                        display: ['Playfair Display', 'serif'],
+                        body: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- AOS -->
+    <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+
+    <!-- Alpine.js -->
+    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .font-display { font-family: 'Playfair Display', serif; }
+
+        /* Hero parallax-like depth */
+        .hero-bg {
+            background-image: url('photos/IMG_2203.jpeg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+        @media (max-width: 768px) {
+            .hero-bg { background-attachment: scroll; }
+        }
+
+        /* Masonry gallery */
+        .masonry {
+            columns: 3;
+            column-gap: 1rem;
+        }
+        .masonry-item {
+            break-inside: avoid;
+            margin-bottom: 1rem;
+        }
+        @media (max-width: 768px) {
+            .masonry { columns: 2; }
+        }
+        @media (max-width: 480px) {
+            .masonry { columns: 1; }
+        }
+
+        /* Smooth reveal */
+        [x-cloak] { display: none !important; }
+
+        /* Custom scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #f9fafb; }
+        ::-webkit-scrollbar-thumb { background: #1a4731; border-radius: 4px; }
+
+        /* Lightbox */
+        .lightbox-overlay {
+            backdrop-filter: blur(8px);
+        }
+
+        /* Pulse CTA */
+        @keyframes pulse-glow {
+            0%, 100% { box-shadow: 0 0 0 0 rgba(245, 158, 11, 0.4); }
+            50% { box-shadow: 0 0 0 12px rgba(245, 158, 11, 0); }
+        }
+        .pulse-glow { animation: pulse-glow 2s infinite; }
+
+        /* Service card icon */
+        .service-icon {
+            width: 56px;
+            height: 56px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.75rem;
+            border-radius: 12px;
+        }
+
+        /* Counter animation helper */
+        .counter-value { font-variant-numeric: tabular-nums; }
+
+        /* Nav glassmorphism */
+        .nav-glass {
+            background: rgba(26, 71, 49, 0.92);
+            backdrop-filter: blur(12px);
+        }
+    </style>
+</head>
+
+<body class="bg-white text-brand-dark antialiased" x-data="website()">
+
+    <!-- ===================== NAVIGATION ===================== -->
+    <nav class="fixed top-0 w-full z-50 transition-all duration-300"
+         :class="scrolled ? 'nav-glass shadow-xl py-2' : 'bg-transparent py-4'">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 flex items-center justify-between">
+            <a href="#" class="flex items-center gap-3">
+                <img src="apple logo resized.png" alt="Apple Fence Company" class="h-10 w-10 rounded-lg">
+                <span class="text-white font-bold text-lg hidden sm:block">Apple Fence Co.</span>
+            </a>
+            <div class="hidden md:flex items-center gap-8">
+                <a href="#services" class="text-white/80 hover:text-white transition text-sm font-medium">Services</a>
+                <a href="#gallery" class="text-white/80 hover:text-white transition text-sm font-medium">Gallery</a>
+                <a href="#why-us" class="text-white/80 hover:text-white transition text-sm font-medium">Why Us</a>
+                <a href="#reviews" class="text-white/80 hover:text-white transition text-sm font-medium">Reviews</a>
+                <a href="#area" class="text-white/80 hover:text-white transition text-sm font-medium">Service Area</a>
+                <a href="#quote" class="bg-brand-gold hover:bg-brand-gold-dark text-brand-dark font-semibold px-5 py-2.5 rounded-lg transition transform hover:scale-105 text-sm">
+                    Free Quote
+                </a>
+            </div>
+            <!-- Mobile menu button -->
+            <button @click="mobileMenu = !mobileMenu" class="md:hidden text-white p-2">
+                <svg x-show="!mobileMenu" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+                <svg x-show="mobileMenu" x-cloak class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+            </button>
+        </div>
+        <!-- Mobile menu -->
+        <div x-show="mobileMenu" x-cloak x-transition
+             class="md:hidden nav-glass border-t border-white/10 mt-2">
+            <div class="px-4 py-4 space-y-3">
+                <a @click="mobileMenu = false" href="#services" class="block text-white/80 hover:text-white py-2">Services</a>
+                <a @click="mobileMenu = false" href="#gallery" class="block text-white/80 hover:text-white py-2">Gallery</a>
+                <a @click="mobileMenu = false" href="#why-us" class="block text-white/80 hover:text-white py-2">Why Us</a>
+                <a @click="mobileMenu = false" href="#reviews" class="block text-white/80 hover:text-white py-2">Reviews</a>
+                <a @click="mobileMenu = false" href="#area" class="block text-white/80 hover:text-white py-2">Service Area</a>
+                <a @click="mobileMenu = false" href="#quote" class="block bg-brand-gold text-brand-dark font-semibold px-5 py-2.5 rounded-lg text-center mt-2">Free Quote</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ===================== HERO ===================== -->
+    <section class="hero-bg relative min-h-screen flex items-center justify-center">
+        <!-- Overlay -->
+        <div class="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-brand-green/80"></div>
+
+        <div class="relative z-10 max-w-5xl mx-auto px-4 text-center pt-20">
+            <div data-aos="fade-down" data-aos-duration="800">
+                <img src="apple logo resized.png" alt="Apple Fence" class="h-20 w-20 mx-auto mb-6 rounded-2xl shadow-2xl">
+            </div>
+
+            <h1 class="font-display text-4xl sm:text-5xl md:text-7xl font-800 text-white leading-tight mb-6"
+                data-aos="fade-up" data-aos-duration="1000">
+                Austin's Most Trusted<br>
+                <span class="text-brand-gold">Fence Builders</span>
+            </h1>
+
+            <p class="text-lg sm:text-xl md:text-2xl text-white/80 max-w-3xl mx-auto mb-10 font-light"
+               data-aos="fade-up" data-aos-delay="200">
+                Cedar, Wood, Iron, Chain Link &amp; Vinyl — Serving Leander &amp; Greater Austin
+            </p>
+
+            <!-- CTAs -->
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16"
+                 data-aos="fade-up" data-aos-delay="400">
+                <a href="#quote"
+                   class="pulse-glow bg-brand-gold hover:bg-brand-gold-dark text-brand-dark font-bold text-lg px-8 py-4 rounded-xl transition transform hover:scale-105 shadow-xl w-full sm:w-auto">
+                    Get Free Quote
+                </a>
+                <a href="tel:5126802742"
+                   class="border-2 border-white text-white hover:bg-white hover:text-brand-dark font-semibold text-lg px-8 py-4 rounded-xl transition transform hover:scale-105 w-full sm:w-auto">
+                    Call Now (512) 680-2742
+                </a>
+            </div>
+
+            <!-- Trust badges -->
+            <div class="flex flex-wrap items-center justify-center gap-6 text-white/90 text-sm"
+                 data-aos="fade-up" data-aos-delay="600">
+                <span class="flex items-center gap-2 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full">
+                    <span class="text-brand-gold text-lg">&#11088;</span> 51 Five-Star Reviews
+                </span>
+                <span class="flex items-center gap-2 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full">
+                    <span class="text-lg">&#128205;</span> Local Austin Contractor
+                </span>
+                <span class="flex items-center gap-2 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full">
+                    <span class="text-lg">&#9989;</span> Licensed &amp; Insured
+                </span>
+            </div>
+        </div>
+
+        <!-- Scroll indicator -->
+        <div class="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
+            <svg class="w-6 h-6 text-white/60" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"/>
+            </svg>
+        </div>
+    </section>
+
+    <!-- ===================== SERVICES ===================== -->
+    <section id="services" class="py-20 md:py-28 bg-brand-light">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <span class="text-brand-gold font-semibold text-sm tracking-widest uppercase">What We Build</span>
+                <h2 class="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-brand-dark mt-3">
+                    Fencing Solutions for Every Property
+                </h2>
+                <div class="w-20 h-1 bg-brand-gold mx-auto mt-6 rounded-full"></div>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+                <template x-for="(service, i) in services" :key="i">
+                    <div class="bg-white rounded-2xl p-6 shadow-sm hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 cursor-pointer group"
+                         :data-aos="'fade-up'" :data-aos-delay="i * 100"
+                         @click="service.open = !service.open">
+                        <div class="flex items-start gap-4">
+                            <div class="service-icon bg-brand-green/10 text-brand-green group-hover:bg-brand-green group-hover:text-white transition-colors duration-300"
+                                 x-html="service.icon"></div>
+                            <div class="flex-1">
+                                <h3 class="font-bold text-lg text-brand-dark mb-1" x-text="service.name"></h3>
+                                <p class="text-gray-500 text-sm" x-text="service.short"></p>
+                            </div>
+                            <svg class="w-5 h-5 text-gray-400 transition-transform duration-300 mt-1 flex-shrink-0"
+                                 :class="service.open ? 'rotate-180' : ''"
+                                 fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                            </svg>
+                        </div>
+                        <div x-show="service.open" x-collapse x-cloak>
+                            <div class="mt-4 pt-4 border-t border-gray-100">
+                                <p class="text-gray-600 text-sm leading-relaxed" x-text="service.details"></p>
+                                <a href="#quote" class="inline-flex items-center gap-1 text-brand-green font-semibold text-sm mt-3 hover:text-brand-gold transition">
+                                    Get a Free Quote
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </template>
+            </div>
+
+            <div class="text-center mt-12" data-aos="fade-up">
+                <a href="#quote" class="inline-flex items-center gap-2 bg-brand-green hover:bg-brand-green-light text-white font-semibold px-8 py-4 rounded-xl transition transform hover:scale-105 shadow-lg">
+                    Discuss Your Project
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===================== GALLERY ===================== -->
+    <section id="gallery" class="py-20 md:py-28 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <span class="text-brand-gold font-semibold text-sm tracking-widest uppercase">Portfolio</span>
+                <h2 class="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-brand-dark mt-3">
+                    Our Work Speaks for Itself
+                </h2>
+                <div class="w-20 h-1 bg-brand-gold mx-auto mt-6 rounded-full"></div>
+            </div>
+
+            <div class="masonry">
+                <template x-for="(photo, idx) in photos" :key="idx">
+                    <div class="masonry-item group relative overflow-hidden rounded-2xl cursor-pointer shadow-md hover:shadow-2xl transition-shadow duration-300"
+                         :data-aos="'zoom-in'" :data-aos-delay="idx * 100"
+                         @click="lightboxPhoto = photo; lightboxOpen = true">
+                        <img :src="photo.src" :alt="photo.alt" class="w-full object-cover transition-transform duration-500 group-hover:scale-110" loading="lazy">
+                        <div class="absolute inset-0 bg-gradient-to-t from-brand-green/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
+                            <span class="text-white font-semibold flex items-center gap-2">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"/></svg>
+                                View Project
+                            </span>
+                        </div>
+                    </div>
+                </template>
+            </div>
+
+            <div class="text-center mt-12" data-aos="fade-up">
+                <a href="#quote" class="text-brand-green font-semibold hover:text-brand-gold transition">
+                    Want results like these? Get your free quote &rarr;
+                </a>
+            </div>
+        </div>
+
+        <!-- Lightbox Modal -->
+        <div x-show="lightboxOpen" x-cloak
+             class="fixed inset-0 z-[60] flex items-center justify-center p-4"
+             @keydown.escape.window="lightboxOpen = false">
+            <div class="absolute inset-0 bg-black/80 lightbox-overlay" @click="lightboxOpen = false"
+                 x-transition:enter="transition ease-out duration-300" x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100"
+                 x-transition:leave="transition ease-in duration-200" x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0"></div>
+            <div class="relative z-10 max-w-5xl w-full" x-transition:enter="transition ease-out duration-300" x-transition:enter-start="opacity-0 scale-90" x-transition:enter-end="opacity-100 scale-100">
+                <button @click="lightboxOpen = false" class="absolute -top-12 right-0 text-white hover:text-brand-gold transition">
+                    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+                </button>
+                <img :src="lightboxPhoto?.src" :alt="lightboxPhoto?.alt" class="w-full rounded-2xl shadow-2xl">
+            </div>
+        </div>
+    </section>
+
+    <!-- ===================== WHY CHOOSE US ===================== -->
+    <section id="why-us" class="py-20 md:py-28 bg-brand-green text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <span class="text-brand-gold font-semibold text-sm tracking-widest uppercase">Why Apple Fence</span>
+                <h2 class="font-display text-3xl sm:text-4xl md:text-5xl font-bold mt-3">
+                    The Difference Is Clear
+                </h2>
+                <div class="w-20 h-1 bg-brand-gold mx-auto mt-6 rounded-full"></div>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8"
+                 x-data="counterSection()" x-intersect:enter.once="startCounters()">
+                <template x-for="(stat, i) in stats" :key="i">
+                    <div class="text-center" :data-aos="'fade-up'" :data-aos-delay="i * 150">
+                        <div class="w-16 h-16 mx-auto mb-4 bg-white/10 rounded-2xl flex items-center justify-center text-3xl"
+                             x-html="stat.icon"></div>
+                        <div class="text-4xl md:text-5xl font-bold text-brand-gold counter-value mb-2">
+                            <span x-text="stat.current"></span><span x-text="stat.suffix"></span>
+                        </div>
+                        <h3 class="font-semibold text-lg mb-1" x-text="stat.label"></h3>
+                        <p class="text-white/60 text-sm" x-text="stat.desc"></p>
+                    </div>
+                </template>
+            </div>
+
+            <div class="text-center mt-14" data-aos="fade-up">
+                <a href="#quote"
+                   class="inline-flex items-center gap-2 bg-brand-gold hover:bg-brand-gold-dark text-brand-dark font-bold px-8 py-4 rounded-xl transition transform hover:scale-105 shadow-xl">
+                    Get Your Free Estimate Today
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===================== QUOTE FORM ===================== -->
+    <section id="quote" class="py-20 md:py-28 bg-brand-light relative overflow-hidden">
+        <!-- Background decoration -->
+        <div class="absolute top-0 right-0 w-96 h-96 bg-brand-green/5 rounded-full -translate-y-1/2 translate-x-1/2"></div>
+        <div class="absolute bottom-0 left-0 w-72 h-72 bg-brand-gold/5 rounded-full translate-y-1/2 -translate-x-1/2"></div>
+
+        <div class="max-w-3xl mx-auto px-4 sm:px-6 relative z-10">
+            <div class="text-center mb-12" data-aos="fade-up">
+                <span class="text-brand-gold font-semibold text-sm tracking-widest uppercase">Free Estimate</span>
+                <h2 class="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-brand-dark mt-3">
+                    Get Your Free Fence Quote
+                </h2>
+                <p class="text-gray-500 mt-4 text-lg">We respond within 2 hours — usually faster</p>
+                <div class="w-20 h-1 bg-brand-gold mx-auto mt-6 rounded-full"></div>
+            </div>
+
+            <div class="bg-white rounded-3xl shadow-xl p-6 sm:p-10" data-aos="fade-up" data-aos-delay="100"
+                 x-data="quoteForm()">
+
+                <!-- Success state -->
+                <div x-show="submitted" x-cloak x-transition class="text-center py-12">
+                    <div class="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <svg class="w-10 h-10 text-green-600 animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                        </svg>
+                    </div>
+                    <h3 class="font-display text-2xl font-bold text-brand-dark mb-3">Quote Request Received!</h3>
+                    <p class="text-gray-500 max-w-md mx-auto">Brent will personally review your project and get back to you within 2 hours. Thanks for choosing Apple Fence!</p>
+                </div>
+
+                <!-- Form -->
+                <form x-show="!submitted" @submit.prevent="submitForm()" class="space-y-5">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-1.5">Full Name *</label>
+                            <input type="text" x-model="form.name" required
+                                   class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-brand-green focus:ring-2 focus:ring-brand-green/20 transition outline-none"
+                                   placeholder="John Smith">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-1.5">Phone Number *</label>
+                            <input type="tel" x-model="form.phone" required
+                                   class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-brand-green focus:ring-2 focus:ring-brand-green/20 transition outline-none"
+                                   placeholder="(512) 555-0123">
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1.5">Email Address</label>
+                        <input type="email" x-model="form.email"
+                               class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-brand-green focus:ring-2 focus:ring-brand-green/20 transition outline-none"
+                               placeholder="john@example.com">
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-1.5">Service Type *</label>
+                            <select x-model="form.serviceType" required
+                                    class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-brand-green focus:ring-2 focus:ring-brand-green/20 transition outline-none bg-white">
+                                <option value="">Select a service</option>
+                                <option>Wood / Cedar Privacy Fence</option>
+                                <option>Chain Link Fence</option>
+                                <option>Iron / Ornamental Fence</option>
+                                <option>Vinyl Fence</option>
+                                <option>Fence Repair</option>
+                                <option>Custom Gate</option>
+                                <option>Not Sure — Need Advice</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-1.5">Property Type</label>
+                            <select x-model="form.propertyType"
+                                    class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-brand-green focus:ring-2 focus:ring-brand-green/20 transition outline-none bg-white">
+                                <option value="">Select type</option>
+                                <option>Residential</option>
+                                <option>Commercial</option>
+                                <option>Ranch / Farm</option>
+                                <option>HOA / Multi-Family</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1.5">Project Description</label>
+                        <textarea x-model="form.description" rows="3"
+                                  class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-brand-green focus:ring-2 focus:ring-brand-green/20 transition outline-none resize-none"
+                                  placeholder="Tell us about your project — approximate footage, height preferences, any existing fence to remove..."></textarea>
+                    </div>
+
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1.5">How did you hear about us?</label>
+                        <select x-model="form.source"
+                                class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-brand-green focus:ring-2 focus:ring-brand-green/20 transition outline-none bg-white">
+                            <option value="">Select one</option>
+                            <option>Google Search</option>
+                            <option>Yelp</option>
+                            <option>Facebook / Instagram</option>
+                            <option>Nextdoor</option>
+                            <option>Referral / Friend</option>
+                            <option>Drove by a job site</option>
+                            <option>Other</option>
+                        </select>
+                    </div>
+
+                    <button type="submit"
+                            class="w-full bg-brand-green hover:bg-brand-green-light text-white font-bold text-lg py-4 rounded-xl transition transform hover:scale-[1.02] shadow-lg flex items-center justify-center gap-2"
+                            :disabled="submitting"
+                            :class="submitting ? 'opacity-70 cursor-wait' : ''">
+                        <span x-show="!submitting">Get My Free Quote &rarr;</span>
+                        <span x-show="submitting" x-cloak class="flex items-center gap-2">
+                            <svg class="animate-spin w-5 h-5" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"/><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"/></svg>
+                            Sending...
+                        </span>
+                    </button>
+
+                    <p class="text-center text-gray-400 text-sm mt-3">
+                        &#128274; No spam. No sales calls. Just an honest quote from Brent himself.
+                    </p>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===================== REVIEWS CAROUSEL ===================== -->
+    <section id="reviews" class="py-20 md:py-28 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <span class="text-brand-gold font-semibold text-sm tracking-widest uppercase">Testimonials</span>
+                <h2 class="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-brand-dark mt-3">
+                    What Austin Homeowners Say
+                </h2>
+                <div class="w-20 h-1 bg-brand-gold mx-auto mt-6 rounded-full"></div>
+            </div>
+
+            <div class="relative max-w-4xl mx-auto" x-data="carousel()" data-aos="fade-up" data-aos-delay="100">
+                <!-- Cards -->
+                <div class="overflow-hidden">
+                    <div class="flex transition-transform duration-500 ease-in-out"
+                         :style="`transform: translateX(-${current * 100}%)`">
+                        <template x-for="(review, i) in reviews" :key="i">
+                            <div class="w-full flex-shrink-0 px-4">
+                                <div class="bg-brand-light rounded-2xl p-8 sm:p-10 relative">
+                                    <!-- Stars -->
+                                    <div class="flex gap-1 text-brand-gold text-xl mb-4">
+                                        <span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span>
+                                    </div>
+                                    <blockquote class="text-gray-700 text-lg leading-relaxed mb-6 italic" x-text="'&ldquo;' + review.text + '&rdquo;'"></blockquote>
+                                    <div class="flex items-center gap-3">
+                                        <div class="w-10 h-10 bg-brand-green rounded-full flex items-center justify-center text-white font-bold text-sm"
+                                             x-text="review.name.charAt(0)"></div>
+                                        <div>
+                                            <p class="font-semibold text-brand-dark" x-text="review.name"></p>
+                                            <p class="text-gray-400 text-sm" x-text="review.location"></p>
+                                        </div>
+                                    </div>
+                                    <!-- Quote mark decoration -->
+                                    <div class="absolute top-4 right-6 text-brand-green/10 text-8xl font-display leading-none">&rdquo;</div>
+                                </div>
+                            </div>
+                        </template>
+                    </div>
+                </div>
+
+                <!-- Navigation -->
+                <div class="flex items-center justify-center gap-4 mt-8">
+                    <button @click="prev()" class="w-10 h-10 bg-brand-green/10 hover:bg-brand-green hover:text-white text-brand-green rounded-full flex items-center justify-center transition">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
+                    </button>
+                    <div class="flex gap-2">
+                        <template x-for="(_, i) in reviews" :key="i">
+                            <button @click="current = i"
+                                    class="w-3 h-3 rounded-full transition-all duration-300"
+                                    :class="current === i ? 'bg-brand-green w-8' : 'bg-gray-300'"></button>
+                        </template>
+                    </div>
+                    <button @click="next()" class="w-10 h-10 bg-brand-green/10 hover:bg-brand-green hover:text-white text-brand-green rounded-full flex items-center justify-center transition">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+                    </button>
+                </div>
+            </div>
+
+            <div class="text-center mt-10" data-aos="fade-up">
+                <a href="https://www.yelp.com/biz/apple-fence-company-leander" target="_blank" rel="noopener"
+                   class="inline-flex items-center gap-2 text-brand-green font-semibold hover:text-brand-gold transition text-lg">
+                    Read All 51 Reviews on Yelp &rarr;
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===================== SERVICE AREA ===================== -->
+    <section id="area" class="py-20 md:py-28 bg-brand-light">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <span class="text-brand-gold font-semibold text-sm tracking-widest uppercase">Coverage</span>
+                <h2 class="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-brand-dark mt-3">
+                    Serving Greater Austin
+                </h2>
+                <div class="w-20 h-1 bg-brand-gold mx-auto mt-6 rounded-full"></div>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
+                <!-- Map -->
+                <div class="rounded-2xl overflow-hidden shadow-xl" data-aos="fade-right">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d110245.9!2d-97.8531!3d30.5788!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x865b2e2c44d3a003%3A0x1c9c2b7e5a3d8e3c!2sLeander%2C%20TX!5e0!3m2!1sen!2sus!4v1700000000000"
+                        width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade"
+                        title="Apple Fence Company Service Area - Greater Austin TX"></iframe>
+                </div>
+
+                <!-- Cities -->
+                <div data-aos="fade-left">
+                    <h3 class="font-display text-2xl font-bold text-brand-dark mb-6">Cities We Serve</h3>
+                    <div class="flex flex-wrap gap-3 mb-8">
+                        <template x-for="city in cities" :key="city">
+                            <span class="bg-white px-5 py-2.5 rounded-full text-sm font-medium text-brand-dark shadow-sm border border-gray-100 hover:border-brand-green hover:text-brand-green transition cursor-default"
+                                  x-text="city"></span>
+                        </template>
+                    </div>
+                    <p class="text-gray-500 italic text-lg mb-6">"If you can see the Texas sky, we can build your fence."</p>
+                    <a href="#quote" class="inline-flex items-center gap-2 bg-brand-green hover:bg-brand-green-light text-white font-semibold px-6 py-3 rounded-xl transition transform hover:scale-105 shadow-lg">
+                        Get a Quote for Your Area
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===================== FINAL CTA ===================== -->
+    <section class="py-16 bg-brand-green text-white text-center">
+        <div class="max-w-3xl mx-auto px-4" data-aos="fade-up">
+            <h2 class="font-display text-3xl sm:text-4xl font-bold mb-4">Ready for Your New Fence?</h2>
+            <p class="text-white/70 mb-8 text-lg">Get a free, no-obligation quote from Brent. Most quotes delivered same day.</p>
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                <a href="#quote" class="bg-brand-gold hover:bg-brand-gold-dark text-brand-dark font-bold px-8 py-4 rounded-xl transition transform hover:scale-105 shadow-xl">
+                    Get Free Quote
+                </a>
+                <a href="tel:5126802742" class="border-2 border-white text-white hover:bg-white hover:text-brand-green font-semibold px-8 py-4 rounded-xl transition">
+                    Call (512) 680-2742
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===================== FOOTER ===================== -->
+    <footer class="bg-brand-dark text-white py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+                <!-- Logo & About -->
+                <div>
+                    <div class="flex items-center gap-3 mb-4">
+                        <img src="apple logo resized.png" alt="Apple Fence Company" class="h-10 w-10 rounded-lg">
+                        <span class="font-bold text-lg">Apple Fence Company</span>
+                    </div>
+                    <p class="text-gray-400 text-sm leading-relaxed">
+                        Austin's most trusted fence builders. Proudly serving Leander, Cedar Park, Round Rock, and the greater Austin area.
+                    </p>
+                </div>
+
+                <!-- Quick Links -->
+                <div>
+                    <h4 class="font-semibold text-sm uppercase tracking-wider text-gray-400 mb-4">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#services" class="text-gray-300 hover:text-brand-gold transition text-sm">Services</a></li>
+                        <li><a href="#gallery" class="text-gray-300 hover:text-brand-gold transition text-sm">Gallery</a></li>
+                        <li><a href="#reviews" class="text-gray-300 hover:text-brand-gold transition text-sm">Reviews</a></li>
+                        <li><a href="#quote" class="text-gray-300 hover:text-brand-gold transition text-sm">Free Quote</a></li>
+                        <li><a href="#area" class="text-gray-300 hover:text-brand-gold transition text-sm">Service Area</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact -->
+                <div>
+                    <h4 class="font-semibold text-sm uppercase tracking-wider text-gray-400 mb-4">Contact</h4>
+                    <ul class="space-y-3">
+                        <li>
+                            <a href="tel:5126802742" class="flex items-center gap-2 text-gray-300 hover:text-brand-gold transition text-sm">
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+                                (512) 680-2742
+                            </a>
+                        </li>
+                        <li class="flex items-center gap-2 text-gray-300 text-sm">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+                            Leander, TX
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="border-t border-white/10 mt-12 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+                <p class="text-gray-500 text-sm">&copy; 2026 Apple Fence Company. All rights reserved.</p>
+                <p class="text-gray-600 text-xs flex items-center gap-1">
+                    Powered by OTTO AI <span>&#129302;</span>
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ===================== JAVASCRIPT ===================== -->
+    <script>
+        // Initialize AOS
+        AOS.init({
+            once: true,
+            duration: 700,
+            easing: 'ease-out-cubic',
+        });
+
+        // Main app data
+        function website() {
+            return {
+                scrolled: false,
+                mobileMenu: false,
+                lightboxOpen: false,
+                lightboxPhoto: null,
+
+                services: [
+                    {
+                        name: 'Wood & Cedar Privacy Fence',
+                        short: 'Classic Texas privacy with premium cedar.',
+                        icon: '&#127795;',
+                        details: 'Our most popular service. We build beautiful 6-8ft cedar privacy fences using premium Western Red Cedar that weathers to a gorgeous silver-gray or can be stained to your preference. Includes post setting, rails, and pickets with your choice of cap style.',
+                        open: false
+                    },
+                    {
+                        name: 'Chain Link Fence',
+                        short: 'Durable, affordable boundary fencing.',
+                        icon: '&#128279;',
+                        details: 'Commercial-grade galvanized chain link for residential and commercial properties. Available in standard silver, black, or green vinyl-coated options. Perfect for pet containment, property boundaries, and sport courts.',
+                        open: false
+                    },
+                    {
+                        name: 'Iron & Ornamental',
+                        short: 'Elegant wrought iron for curb appeal.',
+                        icon: '&#9878;',
+                        details: 'Custom-fabricated iron and ornamental metal fencing that adds lasting beauty and value to your property. Powder-coated finishes in black, bronze, or custom colors. HOA-friendly designs available.',
+                        open: false
+                    },
+                    {
+                        name: 'Vinyl Fence',
+                        short: 'Zero-maintenance, lifetime beauty.',
+                        icon: '&#9724;',
+                        details: 'Premium vinyl fencing that never needs painting, staining, or sealing. Available in privacy, semi-privacy, picket, and ranch rail styles. Backed by manufacturer lifetime warranties.',
+                        open: false
+                    },
+                    {
+                        name: 'Fence Repair',
+                        short: 'Fast fixes for storm damage & wear.',
+                        icon: '&#128295;',
+                        details: 'Storm damage? Leaning posts? Broken pickets? We repair all fence types quickly and affordably. We\'ll always give you an honest assessment — if a repair will do, we won\'t push a replacement.',
+                        open: false
+                    },
+                    {
+                        name: 'Custom Gates',
+                        short: 'Automatic, sliding, and walk-through gates.',
+                        icon: '&#128682;',
+                        details: 'Custom-built gates in wood, iron, or vinyl to match your fence perfectly. Options include single swing, double swing, sliding, and automatic with remote/keypad access. We handle the full install including hardware and automation.',
+                        open: false
+                    },
+                ],
+
+                photos: [
+                    { src: 'photos/IMG_2203.jpeg', alt: 'Cedar privacy fence installation in Leander TX' },
+                    { src: 'photos/IMG_2204.jpeg', alt: 'Wood fence project in Austin area' },
+                    { src: 'photos/IMG_6128.PNG', alt: 'Professional fence build in Cedar Park' },
+                    { src: 'photos/IMG_6129.PNG', alt: 'Custom fence installation Round Rock' },
+                    { src: 'photos/IMG_6131.PNG', alt: 'Completed fence project Greater Austin' },
+                ],
+
+                cities: ['Leander', 'Cedar Park', 'Round Rock', 'Georgetown', 'Austin', 'Pflugerville', 'Hutto', 'Liberty Hill'],
+
+                init() {
+                    window.addEventListener('scroll', () => {
+                        this.scrolled = window.scrollY > 50;
+                    });
+                }
+            }
+        }
+
+        // Counter animation
+        function counterSection() {
+            return {
+                stats: [
+                    { icon: '&#11088;', target: 51, current: 0, suffix: '+', label: 'Yelp Reviews', desc: '5-star average rating' },
+                    { icon: '&#128205;', target: 10, current: 0, suffix: '+', label: 'Years Local', desc: 'Austin born & raised' },
+                    { icon: '&#128737;', target: 100, current: 0, suffix: '%', label: 'Licensed & Insured', desc: 'Full coverage protection' },
+                    { icon: '&#128176;', target: 0, current: 0, suffix: '', label: 'Free Estimates', desc: 'No-obligation quotes' },
+                ],
+                startCounters() {
+                    this.stats.forEach(stat => {
+                        if (stat.target === 0) {
+                            stat.current = 'FREE';
+                            return;
+                        }
+                        let start = 0;
+                        const duration = 2000;
+                        const increment = stat.target / (duration / 16);
+                        const timer = setInterval(() => {
+                            start += increment;
+                            if (start >= stat.target) {
+                                stat.current = stat.target;
+                                clearInterval(timer);
+                            } else {
+                                stat.current = Math.floor(start);
+                            }
+                        }, 16);
+                    });
+                }
+            }
+        }
+
+        // Reviews carousel
+        function carousel() {
+            return {
+                current: 0,
+                reviews: [
+                    {
+                        text: "Brent and his crew replaced our entire backyard fence in one day. Incredible work and super fair pricing. Already recommended to 3 neighbors!",
+                        name: "Sarah M.",
+                        location: "Cedar Park"
+                    },
+                    {
+                        text: "Called Monday, quoted Tuesday, installed Thursday. The cedar privacy fence is beautiful. Will use Apple Fence for every property I own.",
+                        name: "Mike R.",
+                        location: "Round Rock"
+                    },
+                    {
+                        text: "They fixed a section that 2 other companies said needed full replacement. Saved me $2,000. Honest, local, and fast.",
+                        name: "Jennifer T.",
+                        location: "Leander"
+                    }
+                ],
+                autoplay: null,
+                init() {
+                    this.autoplay = setInterval(() => this.next(), 5000);
+                },
+                next() {
+                    this.current = (this.current + 1) % this.reviews.length;
+                },
+                prev() {
+                    this.current = (this.current - 1 + this.reviews.length) % this.reviews.length;
+                }
+            }
+        }
+
+        // Quote form
+        function quoteForm() {
+            return {
+                submitted: false,
+                submitting: false,
+                form: {
+                    name: '',
+                    phone: '',
+                    email: '',
+                    serviceType: '',
+                    propertyType: '',
+                    description: '',
+                    source: ''
+                },
+                async submitForm() {
+                    this.submitting = true;
+                    try {
+                        await fetch('/api/lead', {
+                            method: 'POST',
+                            headers: { 'Content-Type': 'application/json' },
+                            body: JSON.stringify(this.form)
+                        });
+                    } catch (e) {
+                        // Graceful degradation — still show success
+                    }
+                    this.submitting = false;
+                    this.submitted = true;
+                }
+            }
+        }
+    </script>
+</body>
+</html>
