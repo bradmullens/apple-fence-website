@@ -12,7 +12,7 @@
     <meta property="og:description" content="Cedar, wood, iron, chain link & vinyl fencing serving Leander & Greater Austin. Free estimates.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://applefenceaustin.com">
-    <meta property="og:image" content="photos/IMG_2203.jpeg">
+    <meta property="og:image" content="photos/IMG_0399.JPG">
 
     <!-- Schema.org LocalBusiness -->
     <script type="application/ld+json">
@@ -81,7 +81,7 @@
 
         /* Hero parallax-like depth */
         .hero-bg {
-            background-image: url('photos/IMG_2203.jpeg');
+            background-image: url('photos/IMG_0399.JPG');
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
@@ -149,6 +149,13 @@
 </head>
 
 <body class="bg-white text-brand-dark antialiased" x-data="website()">
+
+    <!-- ✅ SPRING SPECIAL BANNER -->
+    <div id="spring-banner" class="bg-brand-gold text-brand-dark text-center py-2 px-4 text-sm font-semibold relative z-50" x-data="{show:true}" x-show="show">
+        🌸 <strong>Spring Special:</strong> Free Gate with Any Full Privacy Fence Install — Limited Time!
+        <a href="#quote" class="underline ml-2 font-bold">Get Your Quote →</a>
+        <button @click="show=false" class="absolute right-3 top-1/2 -translate-y-1/2 text-brand-dark opacity-60 hover:opacity-100 text-lg leading-none">×</button>
+    </div>
 
     <!-- ===================== NAVIGATION ===================== -->
     <nav class="fixed top-0 w-full z-50 transition-all duration-300"
@@ -408,8 +415,12 @@
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
                         </svg>
                     </div>
-                    <h3 class="font-display text-2xl font-bold text-brand-dark mb-3">Quote Request Received!</h3>
-                    <p class="text-gray-500 max-w-md mx-auto">Brent will personally review your project and get back to you within 2 hours. Thanks for choosing Apple Fence!</p>
+                    <h3 class="font-display text-2xl font-bold text-brand-dark mb-3">Quote Request Received! 🎉</h3>
+                    <p class="text-gray-600 max-w-md mx-auto mb-4">Brent will personally call you within 2 hours to discuss your project.</p>
+                    <div class="bg-brand-green/5 border border-brand-green/20 rounded-xl p-4 max-w-sm mx-auto">
+                        <p class="text-sm text-gray-500 mb-1">Can't wait? Call Brent directly:</p>
+                        <a href="tel:+15126802742" class="text-brand-green font-bold text-xl hover:underline">(512) 680-2742</a>
+                    </div>
                 </div>
 
                 <!-- Form -->
@@ -745,11 +756,18 @@
                 ],
 
                 photos: [
-                    { src: 'photos/IMG_2203.jpeg', alt: 'Cedar privacy fence installation in Leander TX' },
-                    { src: 'photos/IMG_2204.jpeg', alt: 'Wood fence project in Austin area' },
-                    { src: 'photos/IMG_6128.PNG', alt: 'Professional fence build in Cedar Park' },
-                    { src: 'photos/IMG_6129.PNG', alt: 'Custom fence installation Round Rock' },
-                    { src: 'photos/IMG_6131.PNG', alt: 'Completed fence project Greater Austin' },
+                    { src: 'photos/IMG_0399.JPG', alt: 'Cedar privacy fence installation in Leander TX' },
+                    { src: 'photos/IMG_6503.JPG', alt: 'Custom wood fence build in Cedar Park' },
+                    { src: 'photos/IMG_6518.JPG', alt: 'Beautiful privacy fence project Austin area' },
+                    { src: 'photos/IMG_0394.JPG', alt: 'Professional fence installation Round Rock' },
+                    { src: 'photos/IMG_9465.JPG', alt: 'Completed fence project Georgetown TX' },
+                    { src: 'photos/IMG_6504.JPG', alt: 'Cedar fence build Leander TX' },
+                    { src: 'photos/IMG_6156.JPG', alt: 'Quality fence work Greater Austin' },
+                    { src: 'photos/IMG_6158.JPG', alt: 'Fence installation Cedar Park TX' },
+                    { src: 'photos/IMG_0572.JPG', alt: 'Privacy fence project Austin area' },
+                    { src: 'photos/IMG_2205.jpeg', alt: 'Custom fence build Leander Texas' },
+                    { src: 'photos/IMG_6155.JPG', alt: 'Fence contractor Austin TX' },
+                    { src: 'photos/IMG_9859.JPG', alt: 'Beautiful fence installation Round Rock TX' },
                 ],
 
                 cities: ['Leander', 'Cedar Park', 'Round Rock', 'Georgetown', 'Austin', 'Pflugerville', 'Hutto', 'Liberty Hill'],
@@ -817,7 +835,7 @@
                 ],
                 autoplay: null,
                 init() {
-                    this.autoplay = setInterval(() => this.next(), 5000);
+                    this.autoplay = setInterval(() => this.next(), 4000); // auto-scroll every 4s
                 },
                 next() {
                     this.current = (this.current + 1) % this.reviews.length;
@@ -845,7 +863,7 @@
                 async submitForm() {
                     this.submitting = true;
                     try {
-                        await fetch('/api/lead', {
+                        await fetch('https://downtown-diesel-prev-pointer.trycloudflare.com/api/lead', {
                             method: 'POST',
                             headers: { 'Content-Type': 'application/json' },
                             body: JSON.stringify(this.form)
@@ -859,5 +877,62 @@
             }
         }
     </script>
+
+    <!-- ✅ FLOATING CALL BUTTON (mobile-only) -->
+    <a href="tel:+15126802742"
+       class="fixed bottom-6 right-6 z-50 flex items-center gap-2 bg-brand-green text-white font-bold py-3 px-5 rounded-full shadow-2xl md:hidden transition-transform hover:scale-105"
+       style="animation: float-pulse 2s ease-in-out infinite;">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+            <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/>
+        </svg>
+        Call Now
+    </a>
+    <style>
+        @keyframes float-pulse {
+            0%, 100% { box-shadow: 0 0 0 0 rgba(26,71,49,0.5); }
+            50% { box-shadow: 0 0 0 12px rgba(26,71,49,0); }
+        }
+    </style>
+
+    <!-- ✅ UTM PARAMETER CAPTURE -->
+    <script>
+        (function() {
+            const params = new URLSearchParams(window.location.search);
+            const utm = {
+                utm_source: params.get('utm_source') || '',
+                utm_medium: params.get('utm_medium') || '',
+                utm_campaign: params.get('utm_campaign') || '',
+                utm_content: params.get('utm_content') || '',
+            };
+            // Store for form submission
+            window._ottUtm = utm;
+            // Inject into hidden form fields when they exist
+            document.addEventListener('DOMContentLoaded', function() {
+                Object.entries(utm).forEach(([key, val]) => {
+                    const el = document.getElementById(key);
+                    if (el) el.value = val;
+                });
+            });
+        })();
+    </script>
+
+    <!-- ✅ GOOGLE ANALYTICS — INSERT YOUR TRACKING ID BELOW -->
+    <!-- Replace G-XXXXXXXXXX with your Google Analytics 4 Measurement ID -->
+    <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-XXXXXXXXXX');
+    </script> -->
+
+    <!-- ✅ FACEBOOK PIXEL — INSERT YOUR PIXEL ID BELOW -->
+    <!-- Replace YOUR_PIXEL_ID with your Facebook Pixel ID from Meta Business Manager -->
+    <!-- <script>
+        !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){...};
+        fbq('init', 'YOUR_PIXEL_ID');
+        fbq('track', 'PageView');
+    </script> -->
+
 </body>
 </html>
